@@ -28,19 +28,42 @@ class RecipeRepository extends ServiceEntityRepository
     {
         $query = $this
             ->createQueryBuilder('recipe')
-            ->select('typeRecipe', 'recipe')
-            ->join('recipe.typeRecipe', 'typeRecipe');
-            
-        if (!empty($search->q)) {
-            $query = $query
-                ->andWhere('recipe.title LIKE :q')
-                ->setParameter('q', "%{$search->q}%");
-        }
+            ->join('recipe.typeRecipe', 'typeRecipe')
+            ->leftJoin('recipe.particularity', 'particularity')
+            ->leftJoin('recipe.cost', 'cost')
+            ->leftJoin('recipe.difficulty', 'difficulty');
 
         if (!empty($search->typeRecipe)) {
             $query = $query
                 ->andWhere('typeRecipe.id IN (:typeRecipe)')
                 ->setParameter('typeRecipe', $search->typeRecipe);
+        }
+
+        if (!empty($search->particularity)) {
+            $query = $query
+                ->andWhere('particularity.id IN (:particularity)')
+                ->setParameter('particularity', $search->particularity);
+        }
+
+        if (!empty($search->cost)) {
+            $query = $query
+                ->andWhere('cost.id IN (:cost)')
+                ->setParameter('cost', $search->cost);
+        }
+
+        if (!empty($search->difficulty)) {
+            $query = $query
+                ->andWhere('difficulty.id IN (:difficulty)')
+                ->setParameter('difficulty', $search->difficulty);
+        }
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('recipe.title LIKE :q 
+                OR recipe.description LIKE :q 
+                OR recipe.listIngredients LIKE :q
+                OR recipe.principalIngredient LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
         }
     
         return $query->getQuery()->getResult();

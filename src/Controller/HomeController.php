@@ -18,12 +18,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
-* @Route("/", name="home_")
+* @Route("/", name="accueil_")
 */
 class HomeController extends AbstractController
 {
     /**
-    * @Route("/", name="home_")
+    * @Route("/", name="accueil_")
     */
     public function index(RecipeRepository $recipeRepository,
     CategoryRepository $categoryRepository,
@@ -45,7 +45,7 @@ class HomeController extends AbstractController
     }
 
     /**
-    * @Route("/recipes", name="recipes")
+    * @Route("recettes", name="recettes")
     */
     public function allRecipes(RecipeRepository $recipeRepository, Request $request)
     {

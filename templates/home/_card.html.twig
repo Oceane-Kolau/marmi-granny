@@ -1,13 +1,15 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">
-            {{recipe.title}}
-            <div class="card-title">
-                {{recipe.typeRecipe}}
-            </div>
-        </h5>
-        <p class="text text-muted">
-            {{recipe.description}}
-        </p>
+<div class="col-lg-3 col-md-5 col-sm-12 my-3">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                {{recipe.title}}
+                <div class="card-title">
+                    <h5>{{recipe.typeRecipe}}</h5>
+                </div>
+            </h2>
+            <p class="text text-muted">
+                {{recipe.cost}}
+            </p>
+        </div>
     </div>
 </div>

@@ -4,155 +4,33 @@
 
 {% block body %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-3 card-filter p-2">
-            
-            <form class="form-group" method='post'>
-                <div class="container">
-                    <h3 class="pt-3">Filtres</h3><hr>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <p class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    Type de plats
-                                </button>
-                            </p>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                {% for typeRecipe in typeRecipes %}
-                                <div class="form-check" class="accordion-body">
-                                    <input class="form-check-input" id="typeRecipe" type="checkbox"
-                                        value="{{typeRecipe.id}}" name="typeRecipe">
-                                    <label class="form-check-label" for="typerecipe">{{typeRecipe}}</label>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container"><hr>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <p class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    Difficulté
-                                </button>
-                            </p>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                {% for difficulty in difficulties %}
-                                <div class="form-check" class="accordion-body">
-                                    <input class="form-check-input" id="difficulty" type="checkbox"
-                                        value="{{difficulty.id}}" name="difficulty">
-                                    <label class="form-check-label" for="difficulty">{{difficulty}}</label>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container"><hr>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <p class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    Particularité
-                                </button>
-                            </p>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                {% for particularity in particularities %}
-                                <div class="form-check" class="accordion-body">
-                                    <input class="form-check-input" id="particularity" type="checkbox"
-                                        value="{{particularity.id}}" name="particularity">
-                                    <label class="form-check-label" for="particularity">{{particularity}}</label>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container"><hr>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <p class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
-                                    aria-controls="flush-collapseFive">
-                                    Category
-                                </button>
-                            </p>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                {% for category in categories %}
-                                <div class="form-check" class="accordion-body">
-                                    <input class="form-check-input" id="category" type="checkbox"
-                                        value="{{category.id}}" name="cost">
-                                    <label class="form-check-label" for="category">{{category}}</label>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container"><hr>
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <p class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                    aria-controls="flush-collapseFour">
-                                    Budget
-                                </button>
-                            </p>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                                {% for cost in costs %}
-                                <div class="form-check" class="accordion-body">
-                                    <input class="form-check-input" id="cost" type="checkbox"
-                                        value="{{cost.id}}" name="cost">
-                                    <label class="form-check-label" for="cost">{{cost}}</label>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="container text-center"><hr>
-                    <button type="submit" class="btn align left-btn ">Filtrer</button>
-                    <button type="submit" class="btn align right-btn ">Réinitialiser</button>
-                </div>
-            </form>
+    <div class="row color-bg justify-content-center align-items-center">
+        <div class="col-lg-6 col-md-6 ml-5">
+            <h1>RECETTES <br>& Cie</h1>
         </div>
-        <div class="col-md-9">
-            <div class="container-fluid">
-                <div class="row">
-                    {% for recipe in recipes %}
-                    <div class="col-lg-3 col-md-6 col-sm-12 my-3">
-                        <div class="card overlay-image _b0">
-                            {# <img src="{{ article.images[0].url }}" class="card-img-top image _b1" alt=""> #}
-                            <div class="card-body text-center">
-                                <h5 class="card-title-article">{{ recipe.title }} </h5>
-                                <p>
-                                    {{ recipe.typeRecipe }}</p>
-                                <p class="">{{ recipe.difficulty }}</p>
-                            </div>
-                            <div class=" hover _b2 ">
-                                {# <div class="text _2"><a href="/telephone/show/{{ article.id }}" class="btn btn-pri">
-                                        &nbsp; Voir plus &nbsp; <i class="fas fa-caret-right"></i>
-                                    </a>
-                                </div> #}
-                            </div>
+        <div class="col-lg-6 col-md-6">
+            <img src="{{ asset('images/marmi-mamie.png') }}" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Les plus aimées 🤍 </h4>
+            <hr class="hr-color">
+            <h5 class="card-title">Card title</h5>
+            <a href="#" class="text-right">Détails ></a>
+        </div>
+        <div class="col-md-9 ml-5">
+            <div class="row">
+                <h4>Recettes de saison </h4>
+                <div class="col-5">
+                    <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
