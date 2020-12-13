@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Data\SearchData;
+use App\Form\SearchForm;
 use App\Repository\CategoryRepository;
 use App\Repository\CookingTimeRepository;
 use App\Repository\CostRepository;
@@ -11,15 +13,17 @@ use App\Repository\RecipeRepository;
 use App\Repository\TypeRecipeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
-* @Route("/", name="home")
+* @Route("/", name="home_")
 */
 class HomeController extends AbstractController
 {
     /**
-    * @Route("/", name="home")
+    * @Route("/", name="home_")
     */
     public function index(RecipeRepository $recipeRepository,
     CategoryRepository $categoryRepository,
@@ -37,6 +41,21 @@ class HomeController extends AbstractController
             'difficulties' => $difficultyRepository->findAll(),
             'particularities' => $particularityRepository->findAll(),
             'typeRecipes' => $typeRecipeRepository->findAll()
+        ]);
+    }
+
+    /**
+    * @Route("/recipes", name="recipes")
+    */
+    public function allRecipes(RecipeRepository $recipeRepository, Request $request)
+    {
+        $data = new SearchData();
+        $form = $this->createForm(SearchForm::class, $data);
+        $form->handleRequest($request);
+        $recipes = $recipeRepository->findSearch($data);
+        return $this->render('home/all-recipes.html.twig', [
+            'recipes' => $recipes,
+            'form' => $form->createView()
         ]);
     }
 }

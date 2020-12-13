@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All recipes{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 card-filter">
+            {{form_start(form, {attr: {class:'filter'}})}}
+            <h4>Filtres</h4><hr>
+            {{form_row(form.q)}}<hr>
+            <h5>Type de plats</h5>
+            {{ form_row(form.typeRecipe)}}<hr>
+            <h5>Difficulté</h5>
+            {{ form_row(form.difficulty)}}<hr>
+            <h5>Budget</h5>
+            {{ form_row(form.cost)}}<hr>
+            <h5>Particularité</h5>
+            {{ form_row(form.particularity)}}<hr>
+
+            <button type="submit" class="btn btn-primary"> Rechercher</button>
+            {{form_end(form)}}
+        </div>
+        <div class="col-md-9">
+            <div class="container-fluid">
+                <div class="row">
+                    {% for recipe in recipes %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 my-3">
+                    {% include 'home/_card.html.twig' with {recipe: recipe} only %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
