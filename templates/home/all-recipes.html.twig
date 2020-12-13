@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 card-filter">
+            <h3 class="pt-3">Filtres</h3>
+            <form class="form-group" method='post'>
+                <hr>
+                <div class="container">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <p class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Type de recettes
+                                </button>
+                            </p>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                {% for typeRecipe in typeRecipes %}
+                                <div class="form-check" class="accordion-body">
+                                    <input class="form-check-input" id="typeRecipe" type="checkbox"
+                                        value="{{typeRecipe.id}}" name="typeRecipe">
+                                    <label class="form-check-label" for="typerecipe">{{typeRecipe}}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="container mt-3">
+                    <p class="">Difficulté</p>
+                    {% for difficulty in difficulties %}
+                    <div class="form-check">
+                        <input class="form-check-input" id="typeRecipe" type="checkbox" value="{{difficulty.id}}"
+                            name="typeRecipe">
+                        <label class="form-check-label" for="typerecipe">{{difficulty}}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+                <div class="container text-center">
+                    <button type="submit" class="btn align left-btn ">Filtrer</button>
+                    <button type="submit" class="btn align right-btn ">Réinitialiser</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <div class="container-fluid">
+                <div class="row">
+                    {% for recipe in recipes %}
+                    <div class="col-lg-3 col-md-6 col-sm-12 my-3">
+                        <div class="card overlay-image _b0">
+                            {# <img src="{{ article.images[0].url }}" class="card-img-top image _b1" alt=""> #}
+                            <div class="card-body text-center">
+                                <h5 class="card-title-article">{{ recipe.title }} </h5>
+                                <p>
+                                    {{ recipe.typeRecipe }}</p>
+                                <p class="waranty">Garantie 12 mois</p>
+                            </div>
+                            <div class=" hover _b2 ">
+                                {# <div class="text _2"><a href="/telephone/show/{{ article.id }}" class="btn btn-pri">
+                                        &nbsp; Voir plus &nbsp; <i class="fas fa-caret-right"></i>
+                                    </a>
+                                </div> #}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
