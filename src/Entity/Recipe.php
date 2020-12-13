@@ -92,6 +92,11 @@ class Recipe
      */
     private $recipeLikes;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isActual;
+
     public function __construct()
     {
         $this->particularity = new ArrayCollection();
@@ -329,6 +334,18 @@ class Recipe
                 $recipeLike->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIsActual(): ?bool
+    {
+        return $this->isActual;
+    }
+
+    public function setIsActual(bool $isActual): self
+    {
+        $this->isActual = $isActual;
 
         return $this;
     }
