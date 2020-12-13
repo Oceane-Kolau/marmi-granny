@@ -81,20 +81,43 @@
                 <div class="container"><hr>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="accordion-item">
-                            <p class="accordion-header" id="flush-headingThree">
+                            <p class="accordion-header" id="flush-headingFive">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    Particularité
+                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                    aria-controls="flush-collapseFive">
+                                    Category
                                 </button>
                             </p>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                {% for particularity in particularities %}
+                            <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                {% for category in categories %}
                                 <div class="form-check" class="accordion-body">
-                                    <input class="form-check-input" id="particularity" type="checkbox"
-                                        value="{{particularity.id}}" name="particularity">
-                                    <label class="form-check-label" for="particularity">{{particularity}}</label>
+                                    <input class="form-check-input" id="category" type="checkbox"
+                                        value="{{category.id}}" name="cost">
+                                    <label class="form-check-label" for="category">{{category}}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container"><hr>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <p class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                    aria-controls="flush-collapseFour">
+                                    Budget
+                                </button>
+                            </p>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                {% for cost in costs %}
+                                <div class="form-check" class="accordion-body">
+                                    <input class="form-check-input" id="cost" type="checkbox"
+                                        value="{{cost.id}}" name="cost">
+                                    <label class="form-check-label" for="cost">{{cost}}</label>
                                 </div>
                                 {% endfor %}
                             </div>
@@ -102,14 +125,7 @@
                     </div>
                 </div>
                 
-
-
-
-
-
-
-
-                <div class="container text-center">
+                <div class="container text-center"><hr>
                     <button type="submit" class="btn align left-btn ">Filtrer</button>
                     <button type="submit" class="btn align right-btn ">Réinitialiser</button>
                 </div>
