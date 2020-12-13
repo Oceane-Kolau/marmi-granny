@@ -21,24 +21,15 @@ class HomeController extends AbstractController
     /**
     * @Route("/", name="home")
     */
-    public function index(): Response
+    public function index(RecipeRepository $recipeRepository,
+    CategoryRepository $categoryRepository,
+    CookingTimeRepository $cookingTimeRepository,
+    CostRepository $costRepository,
+    DifficultyRepository $difficultyRepository,
+    ParticularityRepository $particularityRepository,
+    TypeRecipeRepository $typeRecipeRepository): Response
     {
-        return $this->render('home/index.html.twig');
-    }
-
-    /**
-     * @Route("recipes", name="_recipes", methods={"GET"})
-     */
-    public function allRecipe(
-        RecipeRepository $recipeRepository,
-        CategoryRepository $categoryRepository,
-        CookingTimeRepository $cookingTimeRepository,
-        CostRepository $costRepository,
-        DifficultyRepository $difficultyRepository,
-        ParticularityRepository $particularityRepository,
-        TypeRecipeRepository $typeRecipeRepository): Response
-    {
-        return $this->render('home/all-recipes.html.twig', [ 
+        return $this->render('home/index.html.twig', [ 
             'recipes' => $recipeRepository->findAll(),
             'categories' => $categoryRepository->findAll(),
             'cookingTimes' => $cookingTimeRepository->findAll(),

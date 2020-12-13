@@ -9,12 +9,12 @@ use App\Entity\Particularity;
 class ParticularityFixtures extends Fixture
 {
     protected const PARTICULARITIES = [
-        'Entrée',
-        'Plat principale',
-        'Dessert',
-        'Apéritif',
-        'Boisson',
-        'Petit-déjeuner',
+        'Végétarien',
+        'Epicé',
+        'Vegan',
+        'Alcoolisé',
+        'Sans gluten',
+        'Healthy',
     ];
     public function load(ObjectManager $manager)
     {
