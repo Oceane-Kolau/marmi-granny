@@ -1,0 +1,59 @@
+.root {
+    --red: #990808;
+    --blue: #0A2D9B;
+    --marron: #82452A;
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Lora', serif;
+}
+
+h1 {
+    font-family: 'Lora', serif;
+    font-size: 55px;
+    padding-left:20%;
+}
+
+.card-filter {
+    border: 1px solid whitesmoke;
+    -webkit-box-shadow: 2px 10px 13px -7px #000000, 3px 3px 3px -1px rgba(0,0,0,0); 
+    box-shadow: 2px 10px 13px -7px #000000, 3px 3px 3px -1px rgba(0,0,0,0);
+    border-radius: 16px 16px;
+}
+
+.filter {
+ display: block;
+ position:sticky;
+ top:20px;
+}
+
+.btn-color {
+    background-color: #990808;
+    color: white;
+}
+.color-letter {
+    color: #9B0A2D;
+}
+
+.color-bg {
+    background-color: rgb(244, 244, 244);
+    border-radius: 16px 16px;
+}
+
+.hr-color {
+    color: #990808;
+}
+
+.details-top{
+    text-decoration: none;
+    color: #990808;
+    font-size:16px;
+}
+
+.details-top:hover{
+    text-decoration: none;
+    color: #990808;
+    font-size: 18px;
+}

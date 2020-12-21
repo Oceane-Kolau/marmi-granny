@@ -22,6 +22,7 @@ class RecipeFixtures extends Fixture implements DependentFixtureInterface
             $recipe->setPrincipalIngredient($faker->words(2, true));
             $recipe->setNbPeople(rand(1, 15));
             $recipe->setTips($faker->paragraph());
+            $recipe->setIsActual($faker->boolean());
             $recipe->setCookingTime($this->getReference('cookingTime_' . rand(0, 4)));
             $recipe->setDifficulty($this->getReference('difficulty_' . rand(0, 4)));
             $recipe->setCost($this->getReference('cost_' . rand(0, 4)));
