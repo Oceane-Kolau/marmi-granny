@@ -56,19 +56,16 @@ class Recipe
 
     /**
      * @ORM\ManyToOne(targetEntity=Difficulty::class, inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $difficulty;
 
     /**
      * @ORM\ManyToOne(targetEntity=Cost::class, inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $cost;
 
     /**
      * @ORM\ManyToOne(targetEntity=TypeRecipe::class, inversedBy="recipes")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $typeRecipe;
 

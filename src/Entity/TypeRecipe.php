@@ -25,7 +25,7 @@ class TypeRecipe
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="typeRecipe")
+     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="difficulty")
      */
     private $recipes;
 
