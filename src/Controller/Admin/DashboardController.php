@@ -40,12 +40,12 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Recipe', 'fas fa-list', Recipe::class);
-        yield MenuItem::linkToCrud('Category', 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud('CookingTime', 'fas fa-list', CookingTime::class);
-        yield MenuItem::linkToCrud('Cost', 'fas fa-list', Cost::class);
-        yield MenuItem::linkToCrud('Difficulty', 'fas fa-list', Difficulty::class);
-        yield MenuItem::linkToCrud('Particularity', 'fas fa-list', Particularity::class);
-        yield MenuItem::linkToCrud('TypeRecipe', 'fas fa-list', TypeRecipe::class);
+        yield MenuItem::linkToCrud('Recette', 'fas fa-list', Recipe::class);
+        yield MenuItem::linkToCrud('Categorie', 'fas fa-list', Category::class);
+        yield MenuItem::linkToCrud('Temps de cuisson', 'fas fa-list', CookingTime::class);
+        yield MenuItem::linkToCrud('Coût', 'fas fa-list', Cost::class);
+        yield MenuItem::linkToCrud('Difficulté', 'fas fa-list', Difficulty::class);
+        yield MenuItem::linkToCrud('Particularité', 'fas fa-list', Particularity::class);
+        yield MenuItem::linkToCrud('Type de Recette', 'fas fa-list', TypeRecipe::class);
     }
 }
